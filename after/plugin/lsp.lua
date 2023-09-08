@@ -53,8 +53,7 @@ lsp.format_on_save({
         ['tsserver'] = { 'typescript', 'javascript' },
         ['html'] = { 'html' },
         ['svelte'] = { 'svelte' },
-        ['cssls'] = { 'css', 'scss', 'less' },
-        ['eslint'] = { 'javascript', 'typescript' },
+        ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
     },
 })
