@@ -5,6 +5,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
+    'clangd',
     'gopls',
     'html',
     'svelte',
@@ -55,6 +56,7 @@ lsp.format_on_save({
         ['svelte'] = { 'svelte' },
         ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
+        ['clangd'] = { 'c' },
     },
 })
 
