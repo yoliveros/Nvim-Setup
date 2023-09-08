@@ -5,11 +5,12 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    'clangd',
     'gopls',
     'html',
     'svelte',
     'emmet_language_server',
+    'cssls',
+    'rust_analyzer',
 })
 
 local cmp = require('cmp')
@@ -17,7 +18,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-i>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
 })
 
@@ -49,21 +50,12 @@ lsp.format_on_save({
         timeout_ms = 10000,
     },
     servers = {
-        ['clangd'] = { 'cpp', 'c' },
-        ['tserver'] = { 'typescript', 'javascript' },
-        ['htmt'] = { 'html' },
+        ['tsserver'] = { 'typescript', 'javascript' },
+        ['html'] = { 'html' },
         ['svelte'] = { 'svelte' },
-        -- ['prettier'] = {
-        --     'javascript',
-        --     'typescript',
-        --     'css',
-        --     'less',
-        --     'scss',
-        --     'json',
-        --     'graphql',
-        --     'html',
-        --     'svelte'
-        -- },
+        ['cssls'] = { 'css', 'scss', 'less' },
+        ['eslint'] = { 'javascript', 'typescript' },
+        ['rust_analyzer'] = { 'rust' },
     },
 })
 
