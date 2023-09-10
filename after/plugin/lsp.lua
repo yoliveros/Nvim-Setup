@@ -1,35 +1,5 @@
 local lsp = require('lsp-zero')
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'clangd',
-    'gopls',
-    'html',
-    'svelte',
-    'emmet_language_server',
-    'cssls',
-    'rust_analyzer',
-})
-
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
-})
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
-})
-
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -57,11 +27,49 @@ lsp.format_on_save({
         ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
         ['clangd'] = { 'c' },
+        ['lua_ls'] = { 'lua' },
     },
 })
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = {
+        'tsserver',
+        'rust_analyzer',
+        'clangd',
+        'eslint',
+        'html',
+        'svelte',
+        'emmet_language_server',
+        'cssls',
+        'gopls',
+        'lua_ls',
+    },
+    handlers = {
+        lsp.default_setup,
+        lua_ls = function()
+            local lua_opts = lsp.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+        end
+    }
+})
 
-lsp.setup()
+local cmp = require('cmp')
+local cmp_format = lsp.cmp_format()
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_mappings = cmp.mapping.preset.insert({
+    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+})
+
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
+
+cmp.setup({
+    formatting = cmp_format,
+    mapping = cmp_mappings
+})
 
 vim.diagnostic.config({ virtual_text = true })
