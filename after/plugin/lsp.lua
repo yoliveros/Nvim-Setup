@@ -55,7 +55,7 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
-local cmp_format = lsp.cmp_format()
+-- local cmp_format = lsp.cmp_format()
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -68,7 +68,7 @@ cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 cmp.setup({
-    formatting = cmp_format,
+    -- formatting = cmp_format,
     mapping = cmp_mappings
 })
 
