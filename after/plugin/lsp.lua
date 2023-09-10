@@ -15,28 +15,11 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.format_on_save({
-    format_opts = {
-        async = false,
-        timeout_ms = 10000,
-    },
-    servers = {
-        ['tsserver'] = { 'typescript', 'javascript' },
-        ['html'] = { 'html' },
-        ['svelte'] = { 'svelte' },
-        ['gopls'] = { 'go' },
-        ['rust_analyzer'] = { 'rust' },
-        ['clangd'] = { 'c' },
-        ['lua_ls'] = { 'lua' },
-    },
-})
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
         'tsserver',
         'rust_analyzer',
-        'clangd',
         'eslint',
         'html',
         'svelte',
@@ -52,6 +35,21 @@ require('mason-lspconfig').setup({
             require('lspconfig').lua_ls.setup(lua_opts)
         end
     }
+})
+
+lsp.format_on_save({
+    format_opts = {
+        async = false,
+        timeout_ms = 10000,
+    },
+    servers = {
+        ['tsserver'] = { 'typescript', 'javascript' },
+        ['html'] = { 'html' },
+        ['svelte'] = { 'svelte' },
+        ['gopls'] = { 'go' },
+        ['rust_analyzer'] = { 'rust' },
+        ['lua_ls'] = { 'lua' },
+    },
 })
 
 local cmp = require('cmp')
