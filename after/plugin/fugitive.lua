@@ -14,7 +14,7 @@ autocmd("BufWinEnter", {
         local bufnr = vim.api.nvim_get_current_buf()
         local opts = { buffer = bufnr, remap = false }
         -- push
-        vim.keymap.set("n", "<leader>pp", function()
+        vim.keymap.set("n", "<leader>pu", function()
             vim.cmd.Git('push')
         end, opts)
 
