@@ -28,7 +28,6 @@ require('mason-lspconfig').setup({
         'cssls',
         'gopls',
         'lua_ls',
-        'custom_elements_ls'
     },
     handlers = {
         lsp.default_setup,
@@ -36,34 +35,6 @@ require('mason-lspconfig').setup({
             local lua_opts = lsp.nvim_lua_ls()
             lspconfig.lua_ls.setup(lua_opts)
         end,
-        eslint = function() lspconfig.eslint.setup({}) end,
-        tserver = function() lspconfig.tsserver.setup({}) end,
-        rust_analyzer = function()
-            lspconfig.rust_analyzer.setup({
-                on_attach = lsp.on_attach,
-                settings = {
-                    ["rust-analyzer"] = {
-                        imports = {
-                            granularity = {
-                                group = "module",
-                            },
-                            prefix = "self",
-                        },
-                        checkOnSave = {
-                            command = "clippy",
-                        },
-                        cargo = {
-                            buildScripts = {
-                                enable = true
-                            }
-                        },
-                        procMacros = {
-                            enable = true
-                        }
-                    }
-                }
-            })
-        end
     }
 })
 
@@ -73,19 +44,18 @@ lsp.format_on_save({
         timeout_ms = 10000,
     },
     servers = {
-        ['tsserver'] = { 'typescript', 'javascript' },
+        ['tsserver'] = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },
         ['html'] = { 'html' },
         ['svelte'] = { 'svelte' },
         ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
         ['lua_ls'] = { 'lua' },
-        ['custom_elements_ls'] = { 'jsx', 'tsx' }
     },
 })
 
 
 local cmp = require('cmp')
--- local cmp_format = lsp.cmp_format()
+local cmp_format = lsp.cmp_format()
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -98,7 +68,7 @@ cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 cmp.setup({
-    -- formatting = cmp_format,
+    formatting = cmp_format,
     mapping = cmp_mappings
 })
 
