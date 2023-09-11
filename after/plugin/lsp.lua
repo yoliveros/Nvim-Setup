@@ -15,24 +15,54 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+local lspconfig = require('lspconfig')
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
         'tsserver',
         'rust_analyzer',
-        'eslint',
         'html',
+        'eslint',
         'svelte',
         'emmet_language_server',
         'cssls',
         'gopls',
         'lua_ls',
+        'custom_elements_ls'
     },
     handlers = {
         lsp.default_setup,
         lua_ls = function()
             local lua_opts = lsp.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+            lspconfig.lua_ls.setup(lua_opts)
+        end,
+        eslint = function() lspconfig.eslint.setup({}) end,
+        tserver = function() lspconfig.tsserver.setup({}) end,
+        rust_analyzer = function()
+            lspconfig.rust_analyzer.setup({
+                on_attach = lsp.on_attach,
+                settings = {
+                    ["rust-analyzer"] = {
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                        cargo = {
+                            buildScripts = {
+                                enable = true
+                            }
+                        },
+                        procMacros = {
+                            enable = true
+                        }
+                    }
+                }
+            })
         end
     }
 })
@@ -49,8 +79,10 @@ lsp.format_on_save({
         ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
         ['lua_ls'] = { 'lua' },
+        ['custom_elements_ls'] = { 'jsx', 'tsx' }
     },
 })
+
 
 local cmp = require('cmp')
 -- local cmp_format = lsp.cmp_format()
