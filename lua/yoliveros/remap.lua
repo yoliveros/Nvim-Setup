@@ -36,10 +36,10 @@ vim.api.nvim_create_autocmd('filetype', {
             vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
         end
 
-        -- edit new file
+        -- new file
         bind('nf', '%')
 
-        -- rename file
-        bind('r', 'R')
+        -- new directory
+        bind('nd', 'd')
     end
 })
