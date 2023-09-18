@@ -28,6 +28,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- search and replace
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- netrw
 vim.api.nvim_create_autocmd('filetype', {
     pattern = 'netrw',
     desc = 'Better mappings for netrw',
