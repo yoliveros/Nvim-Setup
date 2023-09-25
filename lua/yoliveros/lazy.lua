@@ -83,5 +83,5 @@ require('lazy').setup({
                 line = 'gc'
             }
         },
-    }
+    },
 }, {})
