@@ -35,6 +35,18 @@ require('mason-lspconfig').setup({
             local lua_opts = lsp.nvim_lua_ls()
             lspconfig.lua_ls.setup(lua_opts)
         end,
+        tsserver = function()
+            -- local tsserver_opts = lsp.tsserver()
+            lspconfig.tsserver.setup({
+                settings = {
+                    completion = {
+                        semi = false,
+                        singleQuote = false,
+                        arrowParens = 'avoid',
+                    }
+                }
+            })
+        end
     }
 })
 
