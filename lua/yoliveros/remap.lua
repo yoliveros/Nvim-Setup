@@ -11,16 +11,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format()
-end)
+vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 
 -- navigate quickfix
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -30,6 +27,9 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- search and replace
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- make executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- netrw
 vim.api.nvim_create_autocmd('filetype', {
@@ -45,5 +45,8 @@ vim.api.nvim_create_autocmd('filetype', {
 
         -- new directory
         bind('nd', 'd')
+
+        -- delete
+        bind('dl', 'D')
     end
 })

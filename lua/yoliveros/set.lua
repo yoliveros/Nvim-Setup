@@ -28,5 +28,3 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "1000"
 
 vim.g.netrw_banner = 0
-
-vim.g.mapleader = " "
