@@ -1,29 +1,29 @@
-vip.keymap.set("n", "<leader>gs", vip.cmd.Git)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
-local yoliveros_fugitive = vip.api.nvim_create_augroup("yoliveros_fugitive", {})
+local yoliveros_fugitive = vim.api.nvim_create_augroup("yoliveros_fugitive", {})
 
-local autocmd = vip.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufWinEnter", {
-    group = yoliveros_fugitive,
-    pattern = "*",
-    callback = function()
-        if vip.bo.ft ~= "fugitive" then
-            return
-        end
+	group = yoliveros_fugitive,
+	pattern = "*",
+	callback = function()
+		if vim.bo.ft ~= "fugitive" then
+			return
+		end
 
-        local bufnr = vip.api.nvim_get_current_buf()
-        local opts = { buffer = bufnr, remap = false }
-        -- push
-        vip.keymap.set("n", "<leader>pu", function()
-            vip.cmd.Git('push')
-        end, opts)
+		local bufnr = vim.api.nvim_get_current_buf()
+		local opts = { buffer = bufnr, remap = false }
+		-- push
+		vim.keymap.set("n", "<leader>pu", function()
+			vim.cmd.Git('push')
+		end, opts)
 
-        -- rebase
-        vip.keymap.set("n", "<leader>P", function()
-            vip.cmd.Git({ 'pull', '--rebase' })
-        end, opts)
+		-- rebase
+		vim.keymap.set("n", "<leader>P", function()
+			vim.cmd.Git({ 'pull', '--rebase' })
+		end, opts)
 
-        -- push origin
-        vip.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
-    end
+		-- push origin
+		vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
+	end
 })
