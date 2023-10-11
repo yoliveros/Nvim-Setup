@@ -1,8 +1,8 @@
 -- Package manager
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vip.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
+if not vip.loop.fs_stat(lazypath) then
+    vip.fn.system({
         "git",
         "clone",
         "--filter=blob:none",
@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 
-vim.opt.rtp:prepend(lazypath)
+vip.opt.rtp:prepend(lazypath)
 
 -- Plugins
 require('lazy').setup({
