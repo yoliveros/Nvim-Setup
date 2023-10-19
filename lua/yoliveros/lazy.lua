@@ -40,6 +40,9 @@ require('lazy').setup({
         build = ':TSUpdate',
     },
     {
+        'nvim-treesitter/nvim-treesitter-context',
+    },
+    {
         'windwp/nvim-ts-autotag'
     },
     {
