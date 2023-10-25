@@ -27,4 +27,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "1000"
 
-vim.g.netrw_banner = 0
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

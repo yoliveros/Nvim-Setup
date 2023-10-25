@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ft", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>w", "<C-w>w")
 vim.keymap.set("n", "<C-b>", "<C-^>")
 
 -- move line
