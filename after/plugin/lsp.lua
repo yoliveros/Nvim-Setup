@@ -85,3 +85,6 @@ cmp.setup({
 })
 
 vim.diagnostic.config({ virtual_text = true })
+
+-- autopair
+require('nvim-autopairs').setup()

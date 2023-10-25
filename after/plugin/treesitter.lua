@@ -33,6 +33,4 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 -- Autotag
-require('nvim-ts-autotag').setup({
-    filetypes = { "html", "xml" },
-})
+require('nvim-ts-autotag').setup()
