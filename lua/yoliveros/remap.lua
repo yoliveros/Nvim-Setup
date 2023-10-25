@@ -31,23 +31,3 @@ vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left>
 
 -- make executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
--- netrw
-vim.api.nvim_create_autocmd('filetype', {
-    pattern = 'netrw',
-    desc = 'Better mappings for netrw',
-    callback = function()
-        local bind = function(lhs, rhs)
-            vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
-        end
-
-        -- new file
-        bind('nf', '%')
-
-        -- new directory
-        bind('nd', 'd')
-
-        -- delete
-        bind('dl', 'D')
-    end
-})
