@@ -43,9 +43,6 @@ require('lazy').setup({
         'nvim-treesitter/nvim-treesitter-context',
     },
     {
-        'windwp/nvim-ts-autotag'
-    },
-    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
     },
@@ -73,6 +70,7 @@ require('lazy').setup({
     {
         'tpope/vim-fugitive'
     },
+    { 'windwp/nvim-ts-autotag' },
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
