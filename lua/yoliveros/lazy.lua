@@ -31,7 +31,8 @@ require('lazy').setup({
         'nvim-lualine/lualine.nvim',
         opts = {
             options = {
-                theme = 'onedark'
+                theme = 'onedark',
+                disabled_filetypes = { 'lazy', 'NVimTree' }
             }
         }
     },
