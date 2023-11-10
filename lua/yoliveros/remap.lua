@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
--- vim.keymap.set("n", "<leader>w", "<C-w>w")
 vim.keymap.set("n", "<C-b>", "<C-^>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
