@@ -19,7 +19,7 @@ local lspconfig = require('lspconfig')
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'tsserver',
+        'biome',
         'rust_analyzer',
         'html',
         'eslint',
@@ -35,18 +35,6 @@ require('mason-lspconfig').setup({
             local lua_opts = lsp.nvim_lua_ls()
             lspconfig.lua_ls.setup(lua_opts)
         end,
-        tsserver = function()
-            -- local tsserver_opts = lsp.tsserver()
-            lspconfig.tsserver.setup({
-                settings = {
-                    completion = {
-                        semi = false,
-                        singleQuote = false,
-                        arrowParens = 'avoid',
-                    }
-                }
-            })
-        end
     }
 })
 
@@ -56,7 +44,7 @@ lsp.format_on_save({
         timeout_ms = 10000,
     },
     servers = {
-        ['tsserver'] = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },
+        ['biome'] = { 'typescript', 'javascript', 'json', 'javascriptreact', 'typescriptreact' },
         ['html'] = { 'html' },
         ['svelte'] = { 'svelte' },
         ['gopls'] = { 'go' },
