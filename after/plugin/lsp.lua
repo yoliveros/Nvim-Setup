@@ -19,9 +19,10 @@ local lspconfig = require('lspconfig')
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'biome',
+        'tsserver',
         'rust_analyzer',
         'html',
+        'clangd',
         'eslint',
         'svelte',
         'emmet_language_server',
@@ -44,9 +45,10 @@ lsp.format_on_save({
         timeout_ms = 10000,
     },
     servers = {
-        ['biome'] = { 'typescript', 'javascript', 'json', 'javascriptreact', 'typescriptreact' },
+        ['tsserver'] = { 'typescript', 'javascript', 'json', 'javascriptreact', 'typescriptreact' },
         ['html'] = { 'html' },
         ['svelte'] = { 'svelte' },
+        ['clangd'] = { 'c', 'cpp' },
         ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
         ['lua_ls'] = { 'lua' },
