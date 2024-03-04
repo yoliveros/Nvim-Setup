@@ -20,9 +20,9 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
         'tsserver',
-        'rust_analyzer',
         'html',
         'clangd',
+        'zls',
         'eslint',
         'svelte',
         'emmet_language_server',
@@ -50,7 +50,7 @@ lsp.format_on_save({
         ['svelte'] = { 'svelte' },
         ['clangd'] = { 'c', 'cpp' },
         ['gopls'] = { 'go' },
-        ['rust_analyzer'] = { 'rust' },
+        ['zls'] = { 'zig' },
         ['lua_ls'] = { 'lua' },
     },
 })
