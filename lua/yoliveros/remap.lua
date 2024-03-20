@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
 vim.keymap.set("n", "<C-b>", "<C-^>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
@@ -14,7 +13,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", { silent = true })
