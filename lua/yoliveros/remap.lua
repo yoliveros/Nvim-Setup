@@ -15,6 +15,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "<leader>y", [["+y]])
+vim.keymap.set("v", "<leader>Y", [["+Y]])
+vim.keymap.set("v", "<leader>y", [["+y]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
