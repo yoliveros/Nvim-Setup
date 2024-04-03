@@ -38,6 +38,8 @@ require('mason-lspconfig').setup({
     }
 })
 
+lspconfig.zls.setup({})
+
 lsp.format_on_save({
     format_opts = {
         async = false,
