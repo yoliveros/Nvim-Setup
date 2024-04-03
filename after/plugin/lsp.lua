@@ -22,7 +22,6 @@ require('mason-lspconfig').setup({
         'tsserver',
         'html',
         'clangd',
-        'zls',
         'eslint',
         'svelte',
         'emmet_language_server',
