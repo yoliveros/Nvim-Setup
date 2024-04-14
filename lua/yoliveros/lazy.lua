@@ -75,9 +75,6 @@ require('lazy').setup({
     {
         'mbbill/undotree'
     },
-    {
-        'tpope/vim-fugitive'
-    },
     { 'windwp/nvim-ts-autotag' },
     {
         'windwp/nvim-autopairs',

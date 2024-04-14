@@ -19,15 +19,14 @@ local lspconfig = require('lspconfig')
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'tsserver',
         'html',
         'clangd',
-        'eslint',
-        'svelte',
+        'biome',
         'emmet_language_server',
         'cssls',
         'gopls',
         'lua_ls',
+        'zls',
     },
     handlers = {
         lsp.default_setup,
@@ -38,17 +37,14 @@ require('mason-lspconfig').setup({
     }
 })
 
-lspconfig.zls.setup({})
-
 lsp.format_on_save({
     format_opts = {
         async = false,
         timeout_ms = 10000,
     },
     servers = {
-        ['tsserver'] = { 'typescript', 'javascript', 'json', 'javascriptreact', 'typescriptreact' },
+        ['tsserver'] = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte" },
         ['html'] = { 'html' },
-        ['svelte'] = { 'svelte' },
         ['clangd'] = { 'c', 'cpp' },
         ['gopls'] = { 'go' },
         ['zls'] = { 'zig' },
