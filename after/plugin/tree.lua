@@ -10,8 +10,9 @@ local function my_on_attach(bufnr)
 
     --custom mappings
     vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-    vim.keymap.set("n", "<C-m>", ":NvimTreeFindFileToggle<CR>")
+    vim.keymap.set("n", "<leader>m", ":NvimTreeFindFileToggle<CR>")
 end
+
 
 require('nvim-tree').setup({
     on_attach = my_on_attach,
@@ -21,6 +22,6 @@ require('nvim-tree').setup({
     actions = {
         open_file = {
             quit_on_open = true
-        }
+        },
     }
 })
