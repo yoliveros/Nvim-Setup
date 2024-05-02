@@ -75,3 +75,6 @@ vim.diagnostic.config({ virtual_text = true })
 
 -- autopair
 require('nvim-autopairs').setup()
+
+-- Autotag
+require('nvim-ts-autotag').setup()
