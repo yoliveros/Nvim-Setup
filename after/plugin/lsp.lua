@@ -34,6 +34,22 @@ require('mason-lspconfig').setup({
             local lua_opts = lsp.nvim_lua_ls()
             lspconfig.lua_ls.setup(lua_opts)
         end,
+        gopls = function()
+            lspconfig.gopls.setup({
+                settings = {
+                    gopls = {
+                        hints = {
+                            assignVariableTypes = true,
+                            compositeLiteralTypes = true,
+                            constantValues = true,
+                            functionTypeParameters = true,
+                            parameterNames = true,
+                            rangeVariableTypes = true,
+                        }
+                    }
+                },
+            })
+        end
     }
 })
 
@@ -69,6 +85,14 @@ cmp_mappings['<S-Tab>'] = nil
 cmp.setup({
     formatting = cmp_format,
     mapping = cmp_mappings
+})
+
+-- Setup vim-dadbod
+cmp.setup.filetype('sql', {
+    sources = cmp.config.sources({
+        { name = 'vim-dadbod-completion' },
+        { name = 'buffer' },
+    })
 })
 
 vim.diagnostic.config({ virtual_text = true })
