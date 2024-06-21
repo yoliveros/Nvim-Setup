@@ -26,7 +26,6 @@ require('mason-lspconfig').setup({
     'cssls',
     'gopls',
     'lua_ls',
-    'zls',
   },
   handlers = {
     lsp.default_setup,
@@ -49,7 +48,7 @@ require('mason-lspconfig').setup({
           }
         },
       })
-    end
+    end,
   }
 })
 
@@ -61,9 +60,8 @@ lsp.format_on_save({
   servers = {
     ['tsserver'] = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte" },
     ['html'] = { 'html' },
-    ['clangd'] = { 'c', 'cpp' },
+    ['clangd'] = { 'c', 'cpp', 'h', 'hpp' },
     ['gopls'] = { 'go' },
-    ['zls'] = { 'zig' },
     ['lua_ls'] = { 'lua' },
   },
 })
