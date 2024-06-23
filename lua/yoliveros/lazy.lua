@@ -61,11 +61,6 @@ require('lazy').setup({
   { 'L3MON4D3/LuaSnip' },
 
   {
-    -- IA
-    'Exafunction/codeium.vim',
-    event = 'BufEnter'
-  },
-  {
     'theprimeagen/harpoon',
     branch = 'harpoon2',
     dependencies = {
