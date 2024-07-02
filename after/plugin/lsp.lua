@@ -97,6 +97,9 @@ vim.cmd([[autocmd FileType dbout setlocal nofoldenable]])
 
 vim.diagnostic.config({ virtual_text = true })
 
+-- C header files
+vim.g.c_syntax_for_h = 1
+
 -- autopair
 require('nvim-autopairs').setup()
 
