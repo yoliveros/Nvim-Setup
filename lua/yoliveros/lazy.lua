@@ -86,9 +86,6 @@ require('lazy').setup({
     }
   },
   {
-    'ziglang/zig.vim',
-  },
-  {
     'kristijanhusak/vim-dadbod-ui',
     dependencies = {
       { 'tpope/vim-dadbod',                     lazy = true },
