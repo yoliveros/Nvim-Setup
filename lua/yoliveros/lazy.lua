@@ -25,15 +25,14 @@ require('lazy').setup({
     }
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
+    "rose-pine/neovim",
+    name = "rose-pine",
   },
   {
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
-        theme = 'catppuccin',
+        theme = 'rose-pine',
         disabled_filetypes = { 'lazy', 'NVimTree' }
       }
     }
