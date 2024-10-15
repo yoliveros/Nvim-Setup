@@ -22,9 +22,6 @@ end
 
 require('nvim-tree').setup({
   on_attach = my_on_attach,
-  view = {
-    width = '100%'
-  },
   actions = {
     open_file = {
       quit_on_open = true
