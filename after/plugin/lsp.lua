@@ -21,11 +21,10 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'html',
     'clangd',
-    'biome',
     'emmet_language_server',
-    'cssls',
     'gopls',
     'lua_ls',
+    'ts_ls',
   },
   handlers = {
     lsp.default_setup,
@@ -58,7 +57,7 @@ lsp.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    ['tsserver'] = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte" },
+    ['ts_ls'] = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte", "css", },
     ['html'] = { 'html' },
     ['clangd'] = { 'c', 'cpp', 'h', 'hpp' },
     ['gopls'] = { 'go' },
