@@ -19,6 +19,10 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 
+-- Window split
+vim.keymap.set("n", "<leader>vp", "<cmd>vsplit<CR>")
+vim.keymap.set("n", "<leader>hp", "<cmd>split<CR>")
+
 -- navigate quickfix
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
