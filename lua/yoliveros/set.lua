@@ -32,3 +32,7 @@ vim.opt.colorcolumn = "1000"
 
 -- global nvim tree
 vim.opt.laststatus = 3
+
+-- color background
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
