@@ -9,6 +9,11 @@ theme.setup({
       crust = '#000000',
     }
   },
+  integrations = {
+    nvimtree = {
+      transparent_panel = true
+    }
+  }
 })
 
 vim.cmd.colorscheme("catppuccin")
