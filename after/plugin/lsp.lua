@@ -25,6 +25,7 @@ require('mason-lspconfig').setup({
     'gopls',
     'lua_ls',
     'ts_ls',
+    'asm_lsp',
   },
   handlers = {
     lsp.default_setup,
@@ -48,6 +49,9 @@ require('mason-lspconfig').setup({
         },
       })
     end,
+    asm_lsp = function()
+      lspconfig.asm_lsp.setup({})
+    end,
   }
 })
 
@@ -62,6 +66,7 @@ lsp.format_on_save({
     ['clangd'] = { 'c', 'cpp', 'h', 'hpp' },
     ['gopls'] = { 'go' },
     ['lua_ls'] = { 'lua' },
+    ['asm_lsp'] = { 'asm', 's', 'S' },
   },
 })
 
