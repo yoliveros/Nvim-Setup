@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<C-b>", "<C-^>")
-vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
+vim.keymap.set("n", "<leader>ch", "<cmd>silent nohlsearch<CR>")
 
 -- move line
 vim.keymap.set("v", "J", ":m '>+3<CR>gv=gv")
@@ -9,6 +9,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Command Line
 vim.keymap.set("n", "<leader>cl", ":!")
+vim.keymap.set("n", "<leader>hx", "<cmd>silent %!xxd<CR>" ..
+  "<cmd>silent set ft=xxd<CR>")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
