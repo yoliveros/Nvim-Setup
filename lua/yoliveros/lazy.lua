@@ -32,9 +32,14 @@ require('lazy').setup({
   {
     'nvim-lualine/lualine.nvim',
     opts = {
-      options = {
-        theme = 'catppuccin',
-      }
+      theme = 'catppuccin',
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent"
+      },
+      on_colors = function(colors)
+        colors.bg_statusline = "#FFFFFF"
+      end,
     }
   },
   {
@@ -100,5 +105,8 @@ require('lazy').setup({
       -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
     end,
+  },
+  {
+    'brenoprata10/nvim-highlight-colors',
   }
 }, {})

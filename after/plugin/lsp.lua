@@ -16,7 +16,12 @@ lsp.on_attach(function(cliente, bufnr)
 end)
 
 local lspconfig = require('lspconfig')
-require('mason').setup({})
+require('mason').setup({
+  registries = {
+    "github:mason-org/mason-registry",
+    "github:Crashdummyy/mason-registry",
+  }
+})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'html',
@@ -109,3 +114,6 @@ require('nvim-autopairs').setup()
 
 -- Autotag
 require('nvim-ts-autotag').setup()
+
+-- CSS color viwer
+require('nvim-highlight-colors').setup()
