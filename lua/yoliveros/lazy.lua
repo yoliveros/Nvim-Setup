@@ -25,6 +25,9 @@ require('lazy').setup({
     }
   },
   {
+    'lewis6991/gitsigns.nvim'
+  },
+  {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
