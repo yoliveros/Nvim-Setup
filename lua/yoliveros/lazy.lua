@@ -114,11 +114,10 @@ require('lazy').setup({
   },
   {
     "seblyng/roslyn.nvim",
-    ft = "cs",
-    ---@module 'roslyn.config'
-    ---@type RoslynNvimConfig
     opts = {
-      -- your configuration comes here; leave empty for default settings
+      filewatching = 'roslyn',
+      broad_search = true,
+      lock_target = true,
     },
   }
 }, {})
