@@ -31,7 +31,6 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'ts_ls',
     'asm_lsp',
-    'gdscript'
   },
   handlers = {
     lsp.default_setup,
@@ -58,7 +57,7 @@ require('mason-lspconfig').setup({
     asm_lsp = function()
       lspconfig.asm_lsp.setup({})
     end,
-    gdscript = function()
+    gdscirpt = function()
       lspconfig.gdscript.setup({})
     end
   }
